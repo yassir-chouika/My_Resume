@@ -3,26 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Template</title>
+    <title>My Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   </head>
-  <body class="bg-gray-50 p-8">
+  <body class="bg-gray-50 p-4 sm:p-8">
     <div class="max-w-5xl mx-auto bg-white shadow-lg">
       <!-- Header Section -->
-      <header class="bg-gray-200 p-8 flex items-start justify-between">
-        <div class="flex gap-8">
+      <header class="bg-gray-200 p-4 sm:p-8 flex flex-col sm:flex-row items-start justify-between">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center sm:items-start">
           <img
             src="./pfp.jpg"
-            style="width: 8rem; height: 8rem"
+            style="width: 6rem; height: 6rem; sm:width: 8rem; sm:height: 8rem"
             alt="Profile Picture"
             class="rounded-3xl object-cover"
           />
-          <div>
-            <h1 class="text-6xl font-semibold">YASSIR<br />CHOUIKA</h1>
+          <div class="text-center sm:text-left">
+            <h1 class="text-4xl sm:text-6xl font-semibold">YASSIR<br />CHOUIKA</h1>
           </div>
         </div>
-        <div class="flex flex-col gap-3 mt-3 text-sm">
+        <div class="flex flex-col gap-2 sm:gap-3 mt-4 sm:mt-3 text-sm">
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-phone fa-lg"></i>
             <span>+33 650070832</span>
@@ -38,23 +38,21 @@
         </div>
       </header>
 
-      <main class="py-8 px-12">
+      <main class="py-6 sm:py-8 px-4 sm:px-12">
         <!-- Summary -->
-        <p class="text-gray-600 text-lg mb-8 text-center max-w-3xl mx-auto">
-          Étudiant motivé, actif, et assidu, j'ai développé des compétences
-          d'adaptation, d'organisation, et d'esprit d'équipe grâce à ma pratique
-          sportive. Prêt à relever de nouveaux défis.
+        <p class="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 text-center max-w-3xl mx-auto">
+          Étudiant motivé et assidu, j'ai développé des compétences d'adaptation, d'organisation, et d'esprit d'équipe grâce à ma participation à des projets de développement en équipe et à la résolution de problèmes techniques. Prêt à relever de nouveaux défis.
         </p>
 
         <!-- Two Column Layout -->
-        <div class="grid grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
           <!-- Left Column - Experience -->
           <section>
-            <h2 class="text-2xl font-bold mb-6">
+            <h2 class="text-2xl font-bold mb-4 sm:mb-6">
               EXPERIENCE
-              <hr class="border-2 mt-3" />
+              <hr class="border-2 mt-2 sm:mt-3" />
             </h2>
-            <div class="space-y-6">
+            <div class="space-y-4 sm:space-y-6">
               <div class="relative pl-4 border-l-2 border-gray-200">
                 <h3 class="font-bold">
                   Site web d'équipe nationale du Basketball USA
@@ -81,13 +79,12 @@
                   <li>
                     Développement d'une application web de checklist en React
                     pour aider les utilisateurs à gérer leurs tâches
-                    efficacement via une interface intuitive. 
+                    efficacement via une interface intuitive.
                   </li>
                   <li>
                     Supervision par
                     des développeurs seniors, respect des délais dans le cadre
                     d'un projet individuel.
-                  </li>
                   </li>
                 </ul>
               </div>
@@ -99,31 +96,32 @@
                     Conception et développement d'une plateforme multifonctionnelle dédiée à l'adoption et à la garde d'animaux.
                   </li>
                   <li>
-                    Utilisation de WordPress pour la conception, le développement et la mise en œuvre du site, permettant aux utilisateurs d'échanger des avis avec d'autres passionnés d'animaux.</li>
+                    Utilisation de WordPress pour la conception, le développement et la mise en œuvre du site, permettant aux utilisateurs d'échanger des avis avec d'autres passionnés d'animaux.
+                  </li>
                 </ul>
               </div>
             </div>
             <!-- Other Activities Section -->
-            <section class="mt-12">
-              <h2 class="text-2xl font-bold mb-6">
+            <section class="mt-8 sm:mt-12">
+              <h2 class="text-2xl font-bold mb-4 sm:mb-6">
                 OTHER ACTIVITIES
-                <hr class="border-2 mt-3" />
+                <hr class="border-2 mt-2 sm:mt-3" />
               </h2>
-              <div class="flex justify-center gap-16 mt-8">
+              <div class="flex flex-wrap justify-center gap-4 sm:gap-16 mt-4 sm:mt-8">
                 <div class="text-center">
-                  <i class="mb-4 fa-solid fa-chess fa-lg"></i> <br>
+                  <i class="mb-2 sm:mb-4 fa-solid fa-chess fa-lg"></i> <br>
                   <span class="text-base font-medium">Chess</span>
                 </div>
                 <div class="text-center">
-                    <i class="mb-4 fa-solid fa-person-running fa-lg"></i><br>
+                  <i class="mb-2 sm:mb-4 fa-solid fa-person-running fa-lg"></i><br>
                   <span class="text-base font-medium">Running</span>
                 </div>
                 <div class="text-center">
-                    <i class="mb-4 fa-solid fa-person-hiking fa-lg"></i><br>
+                  <i class="mb-2 sm:mb-4 fa-solid fa-person-hiking fa-lg"></i><br>
                   <span class="text-base font-medium">Hiking</span>
                 </div>
                 <div class="text-center">
-                    <i class="mb-4 fa-solid fa-gamepad fa-lg"></i><br>
+                  <i class="mb-2 sm:mb-4 fa-solid fa-gamepad fa-lg"></i><br>
                   <span class="text-base font-medium">Video Games</span>
                 </div>
               </div>
@@ -131,14 +129,14 @@
           </section>
 
           <!-- Right Column -->
-          <div class="space-y-8">
+          <div class="space-y-6 sm:space-y-8">
             <!-- Education Section -->
             <section>
-              <h2 class="text-2xl font-bold mb-6">
+              <h2 class="text-2xl font-bold mb-4 sm:mb-6">
                 EDUCATION
-                <hr class="border-2 mt-3" />
+                <hr class="border-2 mt-2 sm:mt-3" />
               </h2>
-              <div class="space-y-6">
+              <div class="space-y-4 sm:space-y-6">
                 <div>
                   <h3 class="font-bold">
                     License en Developpement Web (en cours)
@@ -151,79 +149,56 @@
                     L1 Histoire
                   </h3>
                   <p class="text-gray-600">2022 - 2023 / Île-de-France, France</p>
-                  <p class="mb-2">Universite De Versailles Saint-quentin-en-yvelines</p>                  
+                  <p class="mb-2">Universite De Versailles Saint-quentin-en-yvelines</p>
                 </div>
                 <div>
                   <h3 class="font-bold">
                     Annee Preparatoire Du Langue Ukrainnienne
                   </h3>
                   <p class="text-gray-600">2021 - 2022 / Zapporijia, Ukraine</p>
-                  <p class="mb-2">Université Zdia</p>                  
+                  <p class="mb-2">Université Zdia</p>
                 </div>
                 <div>
                   <h3 class="font-bold">
                     Baccalaureat En Economie Et Gestion
                   </h3>
                   <p class="text-gray-600">2020 - 2021 / Errachidia, Maroc</p>
-                  <p class="mb-2">Lycee D'ibn Tahir</p>                  
+                  <p class="mb-2">Lycee D'ibn Tahir</p>
                 </div>
               </div>
             </section>
 
             <!-- Skills Section -->
             <section>
-              <h2 class="text-2xl font-bold mb-6">
+              <h2 class="text-2xl font-bold mb-4 sm:mb-6">
                 AREA OF EXCELLENCE
-                <hr class="border-2 mt-3" />
+                <hr class="border-2 mt-2 sm:mt-3" />
               </h2>
-              <div class="space-y-6">
+              <div class="space-y-4 sm:space-y-6">
                 <div>
-                  <h3 class="font-bold mb-3">Skills:</h3>
+                  <h3 class="font-bold mb-2 sm:mb-3">Skills:</h3>
                   <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >React</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >JavaScript</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >Php</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >Figma</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >tailwind</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >WordPress</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >Html</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >Css</span
-                    >
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm"
-                      >And more..</span
-                    >
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">React</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">JavaScript</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Php</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Figma</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Tailwind</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">WordPress</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Html</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Css</span>
                   </div>
                 </div>
                 <div>
-                  <h3 class="font-bold mb-3">Languages:</h3>
+                  <h3 class="font-bold mb-2 sm:mb-3">Languages:</h3>
                   <div class="space-y-2">
                     <div class="flex justify-between">
-                      <span>Arabe</span>
+                      <span>Anglais</span>
                       <div>★★★★★</div>
                     </div>
                     <div class="flex justify-between">
-                      <span>Anglais</span>
+                      <span>Français</span>
                       <div>★★★★☆</div>
                     </div>
-                    <div class="flex justify-between">
-                      <span>Français </span>
-                      <div>★★★☆☆</div>
-                    </div>                   
                   </div>
                 </div>
               </div>
