@@ -1,211 +1,493 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta
+      name="description"
+      content="CV de Yassir Chouika – Développeur Web & Mobile spécialisé en React, Next.js, TypeScript et Node.js, basé en Île-de-France."
+    />
+    <title>Yassir Chouika - CV</title>
+    <style>
+      /* --- GENERAL RESET --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* --- PAGE LAYOUT --- */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.5;
+        color: #333;
+        background: #fff;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+
+      .resume-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+      }
+
+      /* --- HEADER --- */
+      .header {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .header #title {
+        opacity: 80%;
+      }
+
+      .name {
+        font-size: 1.5em;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: #2c3e50;
+      }
+
+      .contact {
+        font-size: 0.9em;
+        color: #656969;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      .contact a {
+        color: #3498db;
+        text-decoration: none;
+        font-size: 0.9em;
+      }
+
+      .contact a:hover {
+        text-decoration: underline;
+      }
+
+      .summary {
+        font-size: 0.75em;
+        color: #555;
+        font-style: italic;
+        max-width: 650px;
+        margin: 0 auto;
+        text-align: justify;
+      }
+
+      /* --- SIDEBAR --- */
+      .sidebar {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        height: fit-content;
+        line-height: 1.4;
+      }
+
+      .main-content {
+        padding: 30px 20px;
+      }
+
+      /* --- SECTIONS --- */
+      .section {
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: #2c3e50;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      .sidebar .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 30px;
+        height: 2px;
+        background: #3498db;
+      }
+
+      .main-content .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 50px;
+        height: 2px;
+        background: #3498db;
+      }
+
+      .experience-item,
+      .education-item {
+        margin-bottom: 25px;
+        position: relative;
+        padding-left: 15px;
+        border-left: 2px solid #e9ecef;
+      }
+
+      .experience-item::before,
+      .education-item::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 5px;
+        width: 8px;
+        height: 8px;
+        background: #3498db;
+        border-radius: 50%;
+      }
+
+      .job-title {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 1em;
+        margin-bottom: 3px;
+      }
+
+      .company-date {
+        color: #7f8c8d;
+        font-size: 0.85em;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .description {
+        color: #555;
+        font-size: 0.9em;
+        line-height: 1.6;
+      }
+
+      .description ul {
+        padding-left: 18px;
+        margin-top: 5px;
+      }
+
+      .description li {
+        margin-bottom: 3px;
+      }
+
+      .skill-category {
+        margin-bottom: 5px;
+      }
+
+      .skill-category-title {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 1em;
+        margin-bottom: 8px;
+      }
+
+      .skill-list {
+        color: #555;
+        font-size: 0.9em;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .language-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .language-item:last-child {
+        border-bottom: none;
+      }
+
+      .language-name {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .language-level {
+        font-size: 0.85em;
+        color: #7f8c8d;
+        background: #fff;
+        padding: 3px 8px;
+        border-radius: 10px;
+        font-weight: 500;
+      }
+
+      .interests {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .interest-item {
+        background: #fff;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.85em;
+        color: #555;
+        border: 1px solid #e9ecef;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .resume-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .sidebar {
+          order: 2;
+        }
+        .main-content {
+          order: 1;
+          padding: 0;
+        }
+        .contact span {
+          display: block;
+          margin: 3px 0;
+        }
+        body {
+          padding: 20px;
+        }
+      }
+
+      /* --- PRINT STYLES --- */
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 10mm;
+        }
+
+        html,
+        body {
+          width: 210mm;
+          height: 297mm;
+          max-width: none;
+          margin: 0;
+          padding: 10mm;
+          background: #fff !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .resume-container {
+          gap: 20px;
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+        }
+
+        .sidebar {
+          background: #f8f9fa !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        a[href]:after {
+          content: "";
+        }
+      }
+    </style>
   </head>
-  <body class="bg-gray-50 p-4 sm:p-8">
-    <div class="max-w-5xl mx-auto bg-white shadow-lg">
-      <!-- Header Section -->
-      <header class="bg-gray-200 p-4 sm:p-8 flex flex-col sm:flex-row items-start justify-between">
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center sm:items-start">
-          <img
-            src="./pfp.jpg"
-            style="width: 6rem; height: 6rem; sm:width: 8rem; sm:height: 8rem"
-            alt="Profile Picture"
-            class="rounded-3xl object-cover"
-          />
-          <div class="text-center sm:text-left">
-            <h1 class="text-4xl sm:text-6xl font-semibold">YASSIR<br />CHOUIKA</h1>
-          </div>
-        </div>
-        <div class="flex flex-col gap-2 sm:gap-3 mt-4 sm:mt-3 text-sm">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-phone fa-lg"></i>
-            <span>+33 650070832</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-envelope fa-lg"></i>
-            <span>yassir.chouika@gmail.com</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-map-pin fa-lg"></i>
-            <span>Île-de-France, France</span>
-          </div>
-        </div>
-      </header>
 
-      <main class="py-6 sm:py-8 px-4 sm:px-12">
-        <!-- Summary -->
-        <p class="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 text-center max-w-3xl mx-auto">
-          Étudiant motivé et assidu, j'ai développé des compétences d'adaptation, d'organisation, et d'esprit d'équipe grâce à ma participation à des projets de développement en équipe et à la résolution de problèmes techniques. Prêt à relever de nouveaux défis.
-        </p>
+  <body>
+    <!-- CONTENT UNCHANGED -->
+    <div class="resume-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="header">
+          <h1 class="name">YASSIR CHOUIKA</h1>
+          <p id="title">Développeur Web & Mobile Full Stack</p>
+          <div class="contact">
+            <span>📍 Île-de-France, France</span><br />
+            <span>✉️ yassir.chouika@gmail.com</span><br />
+            <span>☎️ +33 650070832</span><br />
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://chouikasworld.vercel.app/"
+              >🌐 Portfolio : chouikasworld.vercel.app</a
+            ><br />
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/yassir-chouika-b88895295/"
+              >🔗 LinkedIn : linkedin.com/yassir-chouika</a
+            >
+          </div>
+          <p class="summary">
+            Développeur Web & Mobile passionné, j’ai validé mes deux premières
+            années de Bachelor à l’École Multimédia, où j’ai acquis des
+            compétences solides en React, Next.js, JavaScript, TypeScript, et
+            Node.js. Actuellement en troisième année de Bachelor Développement
+            Web & Applications Mobiles à l’École Multimédia – Campus Fonderie de
+            l’Image, je poursuis ma spécialisation en développement full-stack.
+            Autonome, rigoureux et curieux, je recherche une alternance (1
+            semaine école / 3 semaines entreprise) pour l’année 2025-2026, afin
+            de mettre en pratique mes connaissances et de progresser au sein
+            d’une équipe motivante.
+          </p>
+        </div>
 
-        <!-- Two Column Layout -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          <!-- Left Column - Experience -->
-          <section>
-            <h2 class="text-2xl font-bold mb-4 sm:mb-6">
-              EXPERIENCE
-              <hr class="border-2 mt-2 sm:mt-3" />
-            </h2>
-            <div class="space-y-4 sm:space-y-6">
-              <div class="relative pl-4 border-l-2 border-gray-200">
-                <h3 class="font-bold">
-                  Site web d'équipe nationale du Basketball USA
-                </h3>
-                <p class="text-gray-600 mb-2">Ecole Multiméida | 2024</p>
-                <ul class="list-disc ml-4 text-gray-600 space-y-2">
-                  <li>
-                    Participation au développement du site web dédié à l'équipe
-                    féminine de basketball des États-Unis pour les Jeux
-                    Olympiques 2024 en France.
-                  </li>
-                  <li>
-                    Collaboration avec un designer et un chargé de communication
-                    dans le cadre d'un projet d'équipe.
-                  </li>
-                </ul>
-              </div>
-              <div class="relative pl-4 border-l-2 border-gray-200">
-                <h3 class="font-bold">
-                  Web app pour gérer et créer des checklists
-                </h3>
-                <p class="text-gray-600 mb-2">Ecole Multimédia | 2024</p>
-                <ul class="list-disc ml-4 text-gray-600 space-y-2">
-                  <li>
-                    Développement d'une application web de checklist en React
-                    pour aider les utilisateurs à gérer leurs tâches
-                    efficacement via une interface intuitive.
-                  </li>
-                  <li>
-                    Supervision par
-                    des développeurs seniors, respect des délais dans le cadre
-                    d'un projet individuel.
-                  </li>
-                </ul>
-              </div>
-              <div class="relative pl-4 border-l-2 border-gray-200">
-                <h3 class="font-bold">PetPalsConnect - Plateforme d'adoption et de garde d'animaux</h3>
-                <p class="text-gray-600 mb-2">Ecole Multimédia | 2023</p>
-                <ul class="list-disc ml-4 text-gray-600 space-y-2">
-                  <li>
-                    Conception et développement d'une plateforme multifonctionnelle dédiée à l'adoption et à la garde d'animaux.
-                  </li>
-                  <li>
-                    Utilisation de WordPress pour la conception, le développement et la mise en œuvre du site, permettant aux utilisateurs d'échanger des avis avec d'autres passionnés d'animaux.
-                  </li>
-                </ul>
-              </div>
+        <div class="section">
+          <h2 class="section-title">Compétences techniques</h2>
+          <div class="skill-category">
+            <div class="skill-category-title">Langages & Frameworks</div>
+            <div class="skill-list">
+              JavaScript, HTML, CSS, TailwindCSS <br />
+              React, Next.js <br />
+              PHP, Composer, MySQL, SQL
             </div>
-            <!-- Other Activities Section -->
-            <section class="mt-8 sm:mt-12">
-              <h2 class="text-2xl font-bold mb-4 sm:mb-6">
-                OTHER ACTIVITIES
-                <hr class="border-2 mt-2 sm:mt-3" />
-              </h2>
-              <div class="flex flex-wrap justify-center gap-4 sm:gap-16 mt-4 sm:mt-8">
-                <div class="text-center">
-                  <i class="mb-2 sm:mb-4 fa-solid fa-chess fa-lg"></i> <br>
-                  <span class="text-base font-medium">Chess</span>
-                </div>
-                <div class="text-center">
-                  <i class="mb-2 sm:mb-4 fa-solid fa-person-running fa-lg"></i><br>
-                  <span class="text-base font-medium">Running</span>
-                </div>
-                <div class="text-center">
-                  <i class="mb-2 sm:mb-4 fa-solid fa-person-hiking fa-lg"></i><br>
-                  <span class="text-base font-medium">Hiking</span>
-                </div>
-                <div class="text-center">
-                  <i class="mb-2 sm:mb-4 fa-solid fa-gamepad fa-lg"></i><br>
-                  <span class="text-base font-medium">Video Games</span>
-                </div>
-              </div>
-            </section>
-          </section>
-
-          <!-- Right Column -->
-          <div class="space-y-6 sm:space-y-8">
-            <!-- Education Section -->
-            <section>
-              <h2 class="text-2xl font-bold mb-4 sm:mb-6">
-                EDUCATION
-                <hr class="border-2 mt-2 sm:mt-3" />
-              </h2>
-              <div class="space-y-4 sm:space-y-6">
-                <div>
-                  <h3 class="font-bold">
-                    License en Developpement Web (en cours)
-                  </h3>
-                  <p class="text-gray-600">2023 - 2026 / Île-de-France, France</p>
-                  <p class="mb-2">Ecole Multimédia</p>
-                </div>
-                <div>
-                  <h3 class="font-bold">
-                    L1 Histoire
-                  </h3>
-                  <p class="text-gray-600">2022 - 2023 / Île-de-France, France</p>
-                  <p class="mb-2">Universite De Versailles Saint-quentin-en-yvelines</p>
-                </div>
-                <div>
-                  <h3 class="font-bold">
-                    Annee Preparatoire Du Langue Ukrainnienne
-                  </h3>
-                  <p class="text-gray-600">2021 - 2022 / Zapporijia, Ukraine</p>
-                  <p class="mb-2">Université Zdia</p>
-                </div>
-                <div>
-                  <h3 class="font-bold">
-                    Baccalaureat En Economie Et Gestion
-                  </h3>
-                  <p class="text-gray-600">2020 - 2021 / Errachidia, Maroc</p>
-                  <p class="mb-2">Lycee D'ibn Tahir</p>
-                </div>
-              </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section>
-              <h2 class="text-2xl font-bold mb-4 sm:mb-6">
-                AREA OF EXCELLENCE
-                <hr class="border-2 mt-2 sm:mt-3" />
-              </h2>
-              <div class="space-y-4 sm:space-y-6">
-                <div>
-                  <h3 class="font-bold mb-2 sm:mb-3">Skills:</h3>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">React</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">JavaScript</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Php</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Figma</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Tailwind</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">WordPress</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Html</span>
-                    <span class="px-3 py-1 bg-gray-100 rounded text-sm">Css</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="font-bold mb-2 sm:mb-3">Languages:</h3>
-                  <div class="space-y-2">
-                    <div class="flex justify-between">
-                      <span>Anglais</span>
-                      <div>★★★★★</div>
-                    </div>
-                    <div class="flex justify-between">
-                      <span>Français</span>
-                      <div>★★★★☆</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+          </div>
+          <div class="skill-category">
+            <div class="skill-category-title">Outils & DevOps</div>
+            <div class="skill-list">
+              Git, Github, Vercel, <br />Intégration d’API REST <br />
+              Docker, WordPress, Figma <br />REST/GraphQL
+            </div>
           </div>
         </div>
-      </main>
+
+        <div class="section">
+          <h2 class="section-title">Langues</h2>
+          <div class="language-item">
+            <span class="language-name">Anglais</span>
+            <span class="language-level">Courant</span>
+          </div>
+          <div class="language-item">
+            <span class="language-name">Arabe</span>
+            <span class="language-level">Natif</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Centres d’intérêt</h2>
+          <div class="interests">
+            <div class="interest-item">♟ Échecs</div>
+            <div class="interest-item">🏃 Course à pied</div>
+            <div class="interest-item">• Nouvelles technologies</div>
+            <div class="interest-item">• Design web</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <div class="main-content">
+        <div class="section">
+          <h2 class="section-title">💻 Expériences & Projets significatifs</h2>
+
+          <div class="experience-item">
+            <div class="job-title">Développeur Front & Back – “Lab201”</div>
+            <div class="company-date">École Multimédia | 2025</div>
+            <div class="description">
+              <ul>
+                <li>
+                  Développement d’un site web événementiel pour la mise en avant
+                  de concerts.
+                </li>
+                <li>
+                  Intégration Firebase (authentification, base de données temps
+                  réel).
+                </li>
+                <li>
+                  Création d’un back-office complet pour la gestion des
+                  événements.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="job-title">Développeur Web – “RenderBowl”</div>
+            <div class="company-date">Projet Personnel | 2024</div>
+            <div class="description">
+              <ul>
+                <li>
+                  Conception d’un éditeur de code en ligne permettant d’exécuter
+                  du HTML, CSS et JavaScript.
+                </li>
+                <li>
+                  Environnement web intuitif pour faciliter l’apprentissage et
+                  l’expérimentation rapide.
+                </li>
+                <li>
+                  Optimisation de l’interface et suppression du besoin
+                  d’installation externe.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="job-title">
+              Développeur Front-end – Application de gestion de checklist
+            </div>
+            <div class="company-date">École Multimédia | 2024</div>
+            <div class="description">
+              <ul>
+                <li>
+                  Développement d’une application de gestion de tâches avec
+                  React et TailwindCSS.
+                </li>
+                <li>
+                  Consommation et création d’API REST pour la gestion des
+                  données.
+                </li>
+                <li>
+                  Collaboration avec des développeurs seniors et mise en place
+                  des bonnes pratiques Git.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="job-title">
+              Développeur WordPress – “PetPalsConnect”
+            </div>
+            <div class="company-date">École Multimédia | 2023</div>
+            <div class="description">
+              <ul>
+                <li>
+                  Conception d’une plateforme d’adoption d’animaux sous
+                  WordPress.
+                </li>
+                <li>
+                  Implémentation d’un système de gestion d’utilisateurs et
+                  d’avis.
+                </li>
+                <li>Personnalisation front-end via extensions et CSS.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Formation</h2>
+
+          <div class="education-item">
+            <div class="job-title">
+              Bachelor 3 – Développement Web & Applications Mobiles
+            </div>
+            <div class="company-date">
+              2025 – 2026 | École Multimédia – Campus Fonderie de l'image,
+              Bagnolet. Actuellement en 3ᵉ année, à la recherche d’une
+              entreprise d’accueil.
+            </div>
+            <div class="job-title">
+              Bachelor 1 & 2 – Développement Web & Mobile
+            </div>
+            <div class="company-date">
+              2023 – 2025 | École Multimédia – Paris03. Deux premières années
+              validées avec succès, avec de nombreux projets en conditions
+              réelles d’entreprise.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
